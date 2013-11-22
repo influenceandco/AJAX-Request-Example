@@ -1,0 +1,1 @@
+Before use of this demo make sure to import the "data.sql" file into your influenceandco database on your local server.

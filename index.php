@@ -24,6 +24,21 @@
 
         
         <div id='wrap'><!--page wrapper -->
+        
+        	<div class="container">
+        		<div class="row-fluid">
+        			<div class="span6 offset3">
+						<h1>Types of Food</h1>
+						<button id="food_button">Generate</button>
+						<div class="clearfix"></div>
+						<ul id="food">
+						
+						</ul>
+        			</div>
+        		</div>
+        	</div>
+        
+        
           
         </div> <!--end of wrap-->
         
@@ -40,6 +55,43 @@
 
         <!-- custom scripts -->            
         <script type="text/javascript">
+        	
+        	
+        	///button clicked function
+        	$("#food_button").click(function(){
+	        	
+	        	//loading animation
+	        	$("#food").append("<i class='fa fa-spinner fa-spin'></i>");
+	        	
+	        	var data = {}; //post data
+	        	$.ajax({
+	        	     type: "POST",
+	        	     url: "scripts/food_data.php",
+	        	     data: data,
+	        	     success: function (res) {
+	        	     
+	        	     	   //remove loading animation
+					 	   $("#food").remove("i.fa-spinner");
+					 	   
+	        	          res = $.parseJSON(res);
+	        	          
+	        	          for(var i = 0; i<res.length; i++){
+		        	          
+		        	          //append data
+		        	          $("#food").append("<li>"+res[i]["name"]+"</li>");
+		        	          
+	        	          }
+	        	          
+	        	          if(res.length == 0){
+	        	          		///error
+		        	         $("#food").append("Something went wrong.");
+	        	          }
+	        	
+	        	     }
+	        	});
+	        	
+        	});
+        	
         	
         
         </script><!-- end of custom scripts -->
