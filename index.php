@@ -61,6 +61,7 @@
         	$("#food_button").click(function(){
 	        	
 	        	//loading animation
+	        	$("#food").empty();
 	        	$("#food").append("<i class='fa fa-spinner fa-spin'></i>");
 	        	
 	        	var data = {}; //post data
@@ -71,7 +72,7 @@
 	        	     success: function (res) {
 	        	     
 	        	     	   //remove loading animation
-					 	   $("#food").remove("i.fa-spinner");
+					 	   $("#food i").remove(".fa-spinner");
 					 	   
 	        	          res = $.parseJSON(res);
 	        	          
