@@ -29,7 +29,7 @@
         		<div class="row-fluid">
         			<div class="span6 offset3">
 						<h1>Types of Food</h1>
-						<button id="food_button">Generate</button>
+						<button id="food_button" class="btn btn-primary">Generate</button>
 						<div class="clearfix"></div>
 						<ul id="food">
 						
